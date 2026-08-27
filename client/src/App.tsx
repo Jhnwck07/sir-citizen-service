@@ -13,7 +13,7 @@ function clean(key: keyof FormData, value: string) {
   if (key === 'epic' || key.endsWith('Epic')) return value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase().slice(0, 12)
   return value
 }
-async function api(path: string, options?: RequestInit) { const r = await fetch('/api' + path, { headers:{'Content-Type':'application/json'}, ...options }); const b = await r.json(); if (!r.ok) throw new Error(b.message); return b }
+async function api(path: string, options?: RequestInit) { const r = await fetch((import.meta.env.VITE_API_URL || '') + '/api' + path, { headers:{'Content-Type':'application/json'}, ...options }); const b = await r.json(); if (!r.ok) throw new Error(b.message); return b }
 
 export default function App() {
   const [stage, setStage] = useState<Stage>('home')
