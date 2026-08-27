@@ -75,4 +75,6 @@ startxref
   res.send(Buffer.from(pdf, 'utf8'))
 })
 
-app.listen(3001, () => console.log('Synthetic SIR API listening on http://localhost:3001'))
+const PORT = Number(process.env.PORT) || 3001
+
+app.listen(PORT, () => console.log(`Synthetic SIR API listening on port ${PORT}`))
