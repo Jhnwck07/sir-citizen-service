@@ -1,0 +1,12 @@
+{
+  "name": "sir-citizen-service",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter sir-server dev\" \"pnpm --filter sir-client dev\"",
+    "build": "pnpm --filter sir-server build && pnpm --filter sir-client build",
+    "start": "pnpm --filter sir-server start"
+  },
+  "devDependencies": { "concurrently": "^9.1.2" }
+}
